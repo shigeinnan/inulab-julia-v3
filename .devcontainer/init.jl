@@ -1,6 +1,9 @@
 using Pkg
 
 function main()
+    if isempty(Pkg.Registry.reachable_registries())
+        Pkg.Registry.add(Pkg.RegistrySpec(name="General"))
+    end # 追加
     Pkg.add(
         Pkg.PackageSpec[
             Pkg.PackageSpec(name="Distributions"),
